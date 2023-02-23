@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "subtime",
+	"webDir": "build",
+	"bundledWebRuntime": false
+}

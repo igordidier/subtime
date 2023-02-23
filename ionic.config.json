@@ -1,0 +1,7 @@
+{
+  "name": "subtime",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
