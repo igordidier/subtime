@@ -1,0 +1,142 @@
+
+                                            <form
+                                                onSubmit={(event) => {
+                                                  if (newTodo?.trim()) {
+                                                    addTodo(newTodo);
+                                                  }
+                                                  setNewTodo("");
+                                                  event.preventDefault();
+                                                }}
+                                              >
+                                                <IonItem>
+                                                  <IonInput
+                                                    ref={doInputRef}
+                                                    onInput={(event) => setNewTodo(event.target.value)}
+                                                    placeholder="Qu'avez-vous en tête ?"
+                                                    clearInput
+                                                  />
+                                                  <IonButton type="submit" disabled={!newTodo}>
+                                                    Créer
+                                                  </IonButton>
+                                                </IonItem>
+                                              </form>
+
+
+                                              import React, { useEffect, useState } from "react";
+                                              import { Link, useHistory  } from "react-router-dom";
+                                              import { auth, logInWithEmailAndPassword, signInWithGoogle } from "./firebase";
+                                              import { useAuthState } from "react-firebase-hooks/auth";
+                                              import "./login.css";
+
+                                              function Login() {
+                                                const [email, setEmail] = useState("");
+                                                const [password, setPassword] = useState("");
+                                                const [user, loading, error] = useAuthState(auth);
+                                                const navigate = useHistory();
+
+
+                                                useEffect(() => {
+
+                                                   if (user) useHistory("/Tab3");
+                                                 }, [user]);
+                                                return (
+                                                  <div className="login">
+                                                    <div className="login__container">
+                                                      <input
+                                                        type="text"
+                                                        className="login__textBox"
+                                                        value={email}
+                                                        onChange={(e) => setEmail(e.target.value)}
+                                                        placeholder="E-mail Address"
+                                                      />
+                                                      <input
+                                                        type="password"
+                                                        className="login__textBox"
+                                                        value={password}
+                                                        onChange={(e) => setPassword(e.target.value)}
+                                                        placeholder="Password"
+                                                      />
+                                                      <button
+                                                        className="login__btn"
+                                                        onClick={() => logInWithEmailAndPassword(email, password)}
+                                                      >
+                                                        Login
+                                                      </button>
+                                                      <button className="login__btn login__google" onClick={signInWithGoogle}>
+                                                        Login with Google
+                                                      </button>
+                                                      <div>
+
+                                                      </div>
+                                                      <div>
+                                                        Don't have an account? Register now.
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                );
+                                              }
+                                              export default Login;
+
+
+                                              import React, { useState } from 'react';
+                                              import { useHistory } from 'react-router-dom';
+                                                import { auth, logInWithEmailAndPassword, signInWithGoogle } from "";
+
+
+
+                                              const Login = () => {
+                                                const history = useHistory();
+                                                const [email, setEmail] = useState('');
+                                                const [password, setPassword] = useState('');
+                                                const [confirmPassword, setConfirmPassword] = useState('');
+
+                                                const handleSignIn = () => {
+                                                  if (password !== confirmPassword) {
+                                                    console.error('Passwords do not match');
+                                                    return;
+                                                  }
+
+                                                  firestore.auth().signInWithEmailAndPassword(email, password)
+                                                    .then(() => {
+                                                      history.push('/home');
+                                                    })
+                                                    .catch((error) => {
+                                                      console.error(error);
+                                                    });
+                                                }
+
+                                                return (
+                                                  <form className="sign-in-form">
+                                                    <label>
+                                                      Email:
+                                                      <input
+                                                        type="email"
+                                                        value={email}
+                                                        onChange={(e) => setEmail(e.target.value)}
+                                                      />
+                                                    </label>
+                                                    <br />
+                                                    <label>
+                                                      Password:
+                                                      <input
+                                                        type="password"
+                                                        value={password}
+                                                        onChange={(e) => setPassword(e.target.value)}
+                                                      />
+                                                    </label>
+                                                    <br />
+                                                    <label>
+                                                      Confirm Password:
+                                                      <input
+                                                        type="password"
+                                                        value={confirmPassword}
+                                                        onChange={(e) => setConfirmPassword(e.target.value)}
+                                                      />
+                                                    </label>
+                                                    <br />
+                                                    <button onClick={handleSignIn}>Sign In</button>
+                                                  </form>
+                                                );
+                                              };
+
+                                              export default Login;

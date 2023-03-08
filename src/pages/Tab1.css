@@ -1,0 +1,107 @@
+.cardhead{
+
+  color: white;
+  height: 150px;
+  border-radius: 15px;
+  background: linear-gradient(90deg, rgba(24,71,51,0.9187935034802784) 40%, rgba(9,28,20,0.8909512761020881) 100%);
+}
+
+.buttoncard{
+  display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+
+.buttontext{
+font-size: 32px;
+}
+
+.button{
+  color: white;
+      width: 110px;
+      background-color: grey;
+      height: 30px;
+      opacity: 75%;
+      border-radius: 15px;
+}
+.uptitile{
+  color: grey;
+  margin: 25px;
+
+}
+.uppcomming {
+  margin-left: 20px;
+}
+
+#complogoapple {
+  width: 50px;
+    height: 50px;
+    background-image: url(../../public/assets/logos/apple.png);
+    background-repeat: round;
+}
+#complogocanal {
+  width: 50px;
+    height: 50px;
+    background-image: url(../../public/assets/logos/canal.png);
+    background-repeat: round;
+}
+#complogonetflix {
+  width: 50px;
+    height: 50px;
+    background-image: url(../../public/assets/logos/netflix.png);
+    background-repeat: round;
+}
+#complogospotify {
+  width: 50px;
+    height: 50px;
+    background-image: url(../../public/assets/logos/spotify.png);
+    background-repeat: round;
+}
+#complogoadobe {
+  width: 50px;
+    height: 50px;
+    background-image: url(../../public/assets/logos/adobe.png);
+    background-repeat: round;
+}
+#complogoyoutube {
+  width: 50px;
+    height: 50px;
+    background-image: url(../../public/assets/logos/youtube.png);
+    background-repeat: round;
+}
+#complogodisney {
+  width: 50px;
+    height: 50px;
+    background-image: url(../../public/assets/logos/disney.png);
+    background-repeat: round;
+}
+.boxlist{
+  display: flex;
+padding: 10px;
+margin: 23px;
+background-color: rgb(152 158 153 / 36%);
+border-radius: 15px;
+align-items: center;
+height: 80px;
+
+}
+
+
+.dateunder{
+  margin-left: 15px;
+}
+.price{
+  position: absolute;
+right: 50px;
+font-size: 18px;
+}
+.titlecard
+{
+  font-size: 20px;
+}
+
+.datecard{
+  opacity: 50%;
+}
