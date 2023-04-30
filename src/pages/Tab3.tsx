@@ -20,9 +20,11 @@ function Tab3() {
       const doc = await getDocs(q);
       const data = doc.docs[0].data();
       setName(data.name);
+
+
     } catch (err) {
       console.error(err);
-      alert("An error occured while fetching user data");
+      alert("An error occured while fetching user name");
     }
   };
   useEffect(() => {
@@ -52,6 +54,9 @@ function Tab3() {
         <a className="buttonset" href="#">Add Subscription</a>
         <a className="buttonset" href="#">History</a>
         <a className="buttonset" href="#">Settings</a>
+        <button className="dashboard__btn" onClick={logout}>
+         Logout
+        </button>
       </div>
       </IonContent>
     </IonPage>
